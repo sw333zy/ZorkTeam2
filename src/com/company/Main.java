@@ -1,6 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -14,7 +13,7 @@ class Zork {
     static Map<Integer, String> items = new HashMap<>();
     static Map<Integer, Integer> money = new HashMap<>();
 
-    static  Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     static boolean characterFound = false;
 
 
@@ -276,8 +275,8 @@ class Zork {
         money(8);
         if (Room_char == 8) {
             System.out.println("YOU LOST ALL OF YOUR MONEY. YOU LOSS");
-            for(int key : money.keySet()){
-                money.put(key,0);
+            for (int key : money.keySet()) {
+                money.put(key, 0);
             }
             //money.clear();// total_money = 0;
             Room_char = 9;
@@ -298,10 +297,10 @@ class Zork {
     }
 
     public static void money(int room) {
-        if(!money.containsKey(room)){
+        if (!money.containsKey(room)) {
             String money_choice;
             int random = (int) (Math.random() * 1000 + 1);
-            System.out.println("DO YOU WANT TO TAKE THE MONEY "+ random +"?...(y|n)" );
+            System.out.println("DO YOU WANT TO TAKE THE MONEY " + random + "?...(y|n)");
             money_choice = scanner.nextLine();
             if ((money_choice.equalsIgnoreCase("y"))) {
                 money.put(room, random);
@@ -318,8 +317,8 @@ class Zork {
 
     public static void exit() {
         System.out.println("YOU VISIT " + (1 + visited.size()) + " ROOM");
-        int totalMoney =0;
-        for(int i : money.values()){
+        int totalMoney = 0;
+        for (int i : money.values()) {
             totalMoney += i;
         }
         System.out.println("YOU HAVE $" + totalMoney + " AMOUNT OF MONEY");
