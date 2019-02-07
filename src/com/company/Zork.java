@@ -21,13 +21,12 @@ import java.util.Scanner;
  *            |_____ _____|
  */
 public class Zork {
-    static Map<Integer, Boolean> visited = new HashMap<>();
     static Map<Integer, String> items = new HashMap<>();
     static Map<Integer, Integer> money = new HashMap<>();
     static Scanner keyboard = new Scanner(System.in);
-    static boolean found = false;
+    static boolean found;
 
-    static int totalMoney = 0;
+    static int totalMoney;
     static int roomCharacter;
 
     public static void main(String[] args) {
@@ -100,7 +99,6 @@ public class Zork {
     public static int foyer(char direction) {
         int room = 1;
         System.out.println("\nYou are in Room# 1 foyer \tcontains : dead scorpion");
-        visited.put(room, true);
         items.put(room, "Dead Scorpion");
         money(room);
         System.out.print("You can only go (n/q). Enter Direction: ");
@@ -123,7 +121,6 @@ public class Zork {
     public static int frontRoom(char direction) {
         int room = 2;
         System.out.println("\nYou are in Room# 2 front Room \tContains : piano.");
-        visited.put(room, true);
         items.put(room, "Piano");
         money(room);
         System.out.print("You can only go (s/w/e). Enter Direction: ");
@@ -147,7 +144,6 @@ public class Zork {
     //3
     public static int library(char direction) {
         System.out.println("\nYou are in Room# 3 library \tIt contains : spider.");
-        visited.put(3, true);
         items.put(3, "Spider");
         money(3);
         System.out.print("You can only go (e/n). Enter Direction: ");
@@ -170,7 +166,6 @@ public class Zork {
     public static int kitchen(char direction) {
         int room = 4;
         System.out.println("\nYou are in Room# 4 Kitchen \tIt contains : bats");
-        visited.put(room, true);
         items.put(room, "Bats");
         money(room);
         System.out.print("You can only go (w/n). Enter Direction: ");
@@ -192,7 +187,6 @@ public class Zork {
     public static int diningRoom(char direction) {
         int room = 5;
         System.out.println("\nYou are in Room# 5 Dining Room \tIt contains : dust empty box");
-        visited.put(room, true);
         items.put(room, "Dust Empty Box");
         money(room);
         System.out.print("You can only go (s).Enter Direction: ");
@@ -212,7 +206,6 @@ public class Zork {
     public static int vault(char direction) {
         int room = 6;
         System.out.println("\nYou are in Room# 6 vault\tIt contains : 3 walking skeletons");
-        visited.put(room, true);
         items.put(room, "3 Walking Skeletons");
         money(room);
         System.out.print("You can only go (e).Enter Direction: ");
@@ -254,7 +247,6 @@ public class Zork {
     public static int parlor(char direction) {
         int room = 7;
         System.out.println("\nYou are in Room# 7 parlor\tContains : treasure chest");
-        visited.put(room, true);
         items.put(room, "Treasure Chest");
         money(room);
         System.out.print("You can only go (w/s). Enter Direction: ");
@@ -277,7 +269,6 @@ public class Zork {
         int room = 8;
         System.out.println("\nHOORAH!!! You have found SECRET Room !!!");
         System.out.println("You are in Room# 8 Secret \tContains : piles of gold");
-        visited.put(room, true);
         items.put(room, "Piles of Gold");
         money(room);
         System.out.print("You can only go (w). Enter Direction: ");
@@ -313,15 +304,16 @@ public class Zork {
             } else {
                 System.out.println("You did not take the money.");
             }
+            //robbery
+            robbery(room);
         } else {
             System.out.println("You have already taken the money");
         }
-        robbery(room);
     }
 
     public static void robbery(int room) {
         if (room == roomCharacter) {
-            System.out.println("A troll has appeared in the room! He has taken all of your money!");
+            System.out.println("A robber has appeared in the room! He has taken all of your money!");
             totalMoney = 0;//money.clear();
             System.out.println("You now have $" + totalMoney);
             roomCharacter = 9;
@@ -333,7 +325,7 @@ public class Zork {
         if (random <= 25) {
             System.out.println("You are followed by ghost");
         }
-        System.out.println("You have visited: " + visited.size() + " room(s)");
+        System.out.println("You have visited: " + items.size() + " room(s)");
         System.out.println("You have $" + totalMoney);
         System.out.println("You have seen the following items: " + items);
         System.exit(0);
