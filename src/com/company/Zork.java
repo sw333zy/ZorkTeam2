@@ -36,16 +36,17 @@ public class Zork {
     }
 
     public static void welcome() {
-        System.out.println(" |___________________________________|\n" +
+        System.out.println(
+                " |___________________________________|\n" +
                 " |       WELCOME TO THE ZORK         |\n" +
                 " |        (Follow the map)           |\n" +
                 " |___________________________________|\n" +
                 " |          |           |     8      |\n" +
                 " |          |           | Secret Rm) |\n" +
-                " |     5    |    6      |_____  _____|\n" +
+                " |     5    |    6      |____________|\n" +
                 " |(dinning) |  (Vault)  |     7      |\n" +
                 " |          |           | (Parlor)   |\n" +
-                " |_____ ____|___________|_____  _____|\n" +
+                " |____  ____|___________|_____  _____|\n" +
                 " |          |           |            |\n" +
                 " |    3     |    2      |     4      |\n" +
                 " |(Library) | (Front Rm)| (Kitchen)  |\n" +
@@ -198,7 +199,6 @@ public class Zork {
             default:
                 System.out.println("Invalid direction '" + direction + "' in room "+ room);
         }
-
         return room;
     }
 
