@@ -13,6 +13,8 @@ You program should allow the user to find the secret room only 25% of the time. 
 When the user exits the house or quits there is a 25% chance they will be followed by a ghost. Let them know when they are being followed.
 
 Also let the user know how many rooms they visited after they exit or quit.
+Inline-style: 
+![alt text](https://github.com/mhussainshah1/ZorkTeam2/Map.png "Zork Map")
 
 |   |Room       |Contains           |Doors to (direction & room #)  |
 |---|-----------|:-----------------:|------------------------------:|
