@@ -59,7 +59,7 @@ public class Zork {
 
     public static void process(){
         String answer;
-        roomCharacter = getRandom(1, 6);
+        roomCharacter = getRandom(1, 8);
         char direction = 'q';
         int room = 1;
         do {
